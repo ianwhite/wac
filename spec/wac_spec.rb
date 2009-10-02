@@ -14,4 +14,16 @@ describe Wac do
     Wac::Session.should_receive(:new).with('foo').and_return(session = mock)
     Wac.new('foo').should == session
   end
+  
+  it ".query(<query>) should create a session on demand and send query to that" do
+    Wac.should_receive(:new).and_return(session = mock)
+    session.should_receive(:query).with("these", ["params"], {})
+    Wac.query("these", ["params"])
+  end
+  
+  it ".query('foo', :appid => '1234') should create a session with that appid and send query to that" do
+    Wac.should_receive(:new).with("1234").and_return(session = mock)
+    session.should_receive(:query).with('foo', {})
+    Wac.query("foo", :appid => '1234')
+  end
 end

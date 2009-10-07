@@ -11,3 +11,6 @@ Feature: Simple query
     When I set the default appid: "key123"
     And I ask for a session
     Then I should have a session with appid: "key123"
+    
+  Scenario: Send query, WA gives 404, see 
+

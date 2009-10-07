@@ -1,4 +1,7 @@
+require 'net/http'
 require 'wac/session'
+require 'wac/query'
+require 'wac/result'
 
 module Wac
   extend self

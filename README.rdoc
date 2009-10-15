@@ -6,6 +6,8 @@ gem is coming soon, as are features and tests
 
 == get going
 
+  $ git clone git://github.com/ianwhite/wac.git
+  $ cd wac
   $ irb
   
   > require 'rubygems'

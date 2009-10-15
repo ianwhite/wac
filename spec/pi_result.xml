@@ -1,98 +1,277 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<queryresult success="true" error="false" numpods="7" datatypes="MathematicalFunctionIdentity" timedout="" timing="2.304" parsetiming="0.067">
-  <pod title="Input" scanner="Identity" position="100" error="false" numsubpods="1">
-    <subpod title="">
-      <plaintext>pi</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP6381970ac0fg920?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;" title="&amp;#960;" width="9" height="20"/>
-    </subpod>
-  </pod>
-  <pod title="Decimal approximation" scanner="Numeric" position="200" error="false" numsubpods="1">
-    <subpod title="">
-      <plaintext>3.1415926535897932384626433832795028841971693993751058209749...</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP639197cgff?MSPStoreType=image/gif&amp;s=34" alt="3.1415926535897932384626433832795028841971693993751058209749&amp;#8230;" title="3.1415926535897932384626433832795028841971693993751058209749&amp;#8230;" width="491" height="20"/>
-    </subpod>
-    <states count="1">
-      <state name="More digits"/>
-    </states>
-  </pod>
-  <pod title="Property" scanner="Numeric" position="300" error="false" numsubpods="1">
-    <subpod title="">
-      <plaintext>pi is a transcendental number</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP64019770b49hg?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960; is a transcendental number" title="&amp;#960; is a transcendental number" width="194" height="20"/>
-    </subpod>
-  </pod>
-  <pod title="Continued fraction" scanner="ContinuedFraction" position="400" error="false" numsubpods="1">
-    <subpod title="">
-      <plaintext>[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, ...]</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP6560ce2f?MSPStoreType=image/gif&amp;s=34" alt="[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, &amp;#8230;]" title="[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, &amp;#8230;]" width="451" height="20"/>
-    </subpod>
-    <states count="2">
-      <state name="Fraction form"/>
-      <state name="More terms"/>
-    </states>
-  </pod>
-  <pod title="Alternative representations" scanner="MathematicalFunctionData" position="500" error="false" numsubpods="3">
-    <subpod title="">
-      <plaintext>pi = 180 deg </plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP642173ag65i?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;=180 &amp;#176;" title="&amp;#960;=180 &amp;#176;" width="61" height="30"/>
-    </subpod>
-    <subpod title="">
-      <plaintext>pi = log(-1) (-1) i</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP6431a5g8fg?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;=log(-1) (-1) i" title="&amp;#960;=log(-1) (-1) i" width="118"/>
-    </subpod>
-  </pod>
-  <pod title="Continued fraction" scanner="ContinuedFraction" position="400" error="false" numsubpods="1">
-    <subpod title="">
-      <plaintext>[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, ...]</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP6560ce2f?MSPStoreType=image/gif&amp;s=34" alt="[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, &amp;#8230;]" title="[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, &amp;#8230;]" width="451" height="20"/>
-    </subpod>
-    <states count="2">
-      <state name="Fraction form"/>
-      <state name="More terms"/>
-    </states>
-  </pod>
-  <pod title="Alternative representations" scanner="MathematicalFunctionData" position="500" error="false" numsubpods="3">
-    <subpod title="">
-      <plaintext>pi = 180 deg </plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP642173ag65i?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;=180 &amp;#176;" title="&amp;#960;=180 &amp;#176;" width="61" height="30"/>
-    </subpod>
-    <subpod title="">
-      <plaintext>pi = log(-1) (-1) i</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP6431a5g8fg?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;=log(-1) (-1) i" title="&amp;#960;=log(-1) (-1) i" width="118" height="30"/>
-    </subpod>
-    <subpod title="">
-      <plaintext>pi = 2 E(0)</plaintext>
-      <img src="http://www4e.wolframalpha.com/Calculate/MSP/MSP644197c12g?MSPStoreType=image/gif&amp;s=34" alt="&amp;#960;=2 E(0)" title="&amp;#960;=2 E(0)" width="67" height="30"/>
-    </subpod>
-    <states count="1">
-      <state name="More"/>
-    </states>
-    <infos count="4">
-      <info text="E (m) is the complete elliptic integral of the second kind">
-        <link url="http://reference.wolfram.com/mathematica/ref/EllipticE.html" text="Documentation" title="Mathematica"/>
-        <link url="http://functions.wolfram.com/EllipticIntegrals/EllipticE" text="Properties" title="Wolfram Functions Site"/>
-        <link url="http://mathworld.wolfram.com/CompleteEllipticIntegraloftheSecondKind.html" text="Definition" title="MathWorld"/>
-      </info>
-      <info text="i is the imaginary unit">
-        <link url="http://reference.wolfram.com/mathematica/ref/I.html" text="Documentation" title="Documentation"/>
-        <link url="http://mathworld.wolfram.com/i.html" text="Definition" title="MathWorld"/>
-      </info>
-      <info text="log (x) is the natural logarithm">
-        <link url="http://reference.wolfram.com/mathematica/ref/Log.html" text="Documentation" title="Mathematica"/>
-        <link url="http://functions.wolfram.com/ElementaryFunctions/Log" text="Properties" title="Wolfram Functions Site"/>
-        <link url="http://mathworld.wolfram.com/NaturalLogarithm.html" text="Definition" title="MathWorld"/>
-      </info>
-      <info>
-        <link url="http://functions.wolfram.com/Constants/Pi/27/ShowAll.html" text="More information"/>
-      </info>
-    </infos>
-  </pod>
-  <assumptions count="1">
-    <assumption type="Clash" word="pi" count="4">
-      <value name="NamedConstant" desc="a mathematical constant" input="*C.pi-_*NamedConstant-"/>
-      <value name="Character" desc="a character" input="*C.pi-_*Character-"/>
-      <value name="Movie" desc="a movie" input="*C.pi-_*Movie-"/>
-      <value name="Word" desc="a word" input="*C.pi-_*Word-"/>
-    </assumption>
-  </assumptions>
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='7'
+    datatypes='MathematicalFunctionIdentity'
+    timedout=''
+    timing='1.955'
+    parsetiming='0.067'>
+ <pod title='Input'
+     scanner='Identity'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>pi</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP660197h7f5i5d9egb2a00005i614def7cbh82ch?MSPStoreType=image/gif&amp;s=21'
+       alt='pi'
+       title='pi'
+       width='9'
+       height='20' />
+  </subpod>
+ </pod>
+ <pod title='Decimal approximation'
+     scanner='Numeric'
+     position='200'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>3.1415926535897932384626433832795028841971693993751058209749...</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP661197h7f5i5d9egb2a000060d8c41if3ha8328?MSPStoreType=image/gif&amp;s=21'
+       alt='3.1415926535897932384626433832795028841971693993751058209749...'
+       title='3.1415926535897932384626433832795028841971693993751058209749...'
+       width='491'
+       height='20' />
+  </subpod>
+  <states count='1'>
+   <state name='More digits' />
+  </states>
+ </pod>
+ <pod title='Property'
+     scanner='Numeric'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>pi is a transcendental number</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP662197h7f5i5d9egb2a0000126h4eg76ig5a548?MSPStoreType=image/gif&amp;s=21'
+       alt='pi is a transcendental number'
+       title='pi is a transcendental number'
+       width='194'
+       height='20' />
+  </subpod>
+ </pod>
+ <pod title='Continued fraction'
+     scanner='ContinuedFraction'
+     position='400'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, ...]</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP663197h7f5i5d9egb2a00006aaa66ba18f96f0e?MSPStoreType=image/gif&amp;s=21'
+       alt='[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, ...]'
+       title='[3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, ...]'
+       width='491'
+       height='20' />
+  </subpod>
+  <states count='2'>
+   <state name='Fraction form' />
+   <state name='More terms' />
+  </states>
+ </pod>
+ <pod title='Alternative representations'
+     scanner='MathematicalFunctionData'
+     position='500'
+     error='false'
+     numsubpods='3'>
+  <subpod title=''>
+   <plaintext>pi = 180 deg </plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP664197h7f5i5d9egb2a000049g649baff48ce2c?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 180 deg '
+       title='pi = 180 deg '
+       width='61'
+       height='30' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = -i log(-1)</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP665197h7f5i5d9egb2a00002212dbdbdb44577a?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = -i log(-1)'
+       title='pi = -i log(-1)'
+       width='97'
+       height='30' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = 2 E(0)</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP666197h7f5i5d9egb2a00003i747c2i8ib9da5a?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 2 E(0)'
+       title='pi = 2 E(0)'
+       width='67'
+       height='30' />
+  </subpod>
+  <states count='1'>
+   <state name='More' />
+  </states>
+  <infos count='4'>
+   <info text='E(m) is the complete elliptic integral of the second kind'>
+    <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP667197h7f5i5d9egb2a000040451067i8bf0283?MSPStoreType=image/gif&amp;s=21'
+        alt='E(m) is the complete elliptic integral of the second kind'
+        title='E(m) is the complete elliptic integral of the second kind'
+        width='350'
+        height='18' />
+    <link url='http://reference.wolfram.com/mathematica/ref/EllipticE.html'
+        text='Documentation'
+        title='Mathematica' />
+    <link url='http://functions.wolfram.com/EllipticIntegrals/EllipticE'
+        text='Properties'
+        title='Wolfram Functions Site' />
+    <link url='http://mathworld.wolfram.com/CompleteEllipticIntegraloftheSecondKind.html'
+        text='Definition'
+        title='MathWorld' />
+   </info>
+   <info text='i is the imaginary unit'>
+    <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP668197h7f5i5d9egb2a00000cg4502e2e493ebe?MSPStoreType=image/gif&amp;s=21'
+        alt='i is the imaginary unit'
+        title='i is the imaginary unit'
+        width='137'
+        height='18' />
+    <link url='http://reference.wolfram.com/mathematica/ref/I.html'
+        text='Documentation'
+        title='Documentation' />
+    <link url='http://mathworld.wolfram.com/i.html'
+        text='Definition'
+        title='MathWorld' />
+   </info>
+   <info text='log(x) is the natural logarithm'>
+    <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP669197h7f5i5d9egb2a00005hcd2f707361gg98?MSPStoreType=image/gif&amp;s=21'
+        alt='log(x) is the natural logarithm'
+        title='log(x) is the natural logarithm'
+        width='192'
+        height='18' />
+    <link url='http://reference.wolfram.com/mathematica/ref/Log.html'
+        text='Documentation'
+        title='Mathematica' />
+    <link url='http://functions.wolfram.com/ElementaryFunctions/Log'
+        text='Properties'
+        title='Wolfram Functions Site' />
+    <link url='http://mathworld.wolfram.com/NaturalLogarithm.html'
+        text='Definition'
+        title='MathWorld' />
+   </info>
+   <info>
+    <link url='http://functions.wolfram.com/Constants/Pi/27/ShowAll.html'
+        text='More information' />
+   </info>
+  </infos>
+ </pod>
+ <pod title='Series representations'
+     scanner='MathematicalFunctionData'
+     position='600'
+     error='false'
+     numsubpods='3'>
+  <subpod title=''>
+   <plaintext>pi = 4 sum_(k=0)^infinity(-1)^k/(2 k+1)</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP670197h7f5i5d9egb2a00002b5d8f9hc4a5a6f6?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 4 sum_(k=0)^infinity(-1)^k/(2 k+1)'
+       title='pi = 4 sum_(k=0)^infinity(-1)^k/(2 k+1)'
+       width='110'
+       height='57' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = -2+2 sum_(k=1)^infinity2^k/(2 k
+k)</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP671197h7f5i5d9egb2a00002cc5i9860764c46d?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = -2+2 sum_(k=1)^infinity2^k/(2 k
+k)'
+       title='pi = -2+2 sum_(k=1)^infinity2^k/(2 k
+k)'
+       width='139'
+       height='70' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = sum_(k=0)^infinity(50 k-6)/(2^k (3 k
+k))</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP672197h7f5i5d9egb2a00002g082h225g2ef7a0?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = sum_(k=0)^infinity(50 k-6)/(2^k (3 k
+k))'
+       title='pi = sum_(k=0)^infinity(50 k-6)/(2^k (3 k
+k))'
+       width='111'
+       height='67' />
+  </subpod>
+  <states count='1'>
+   <state name='More' />
+  </states>
+  <infos count='2'>
+   <info text='(n
+m) is the binomial coefficient'>
+    <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP673197h7f5i5d9egb2a000039i22h78d3d5g0dh?MSPStoreType=image/gif&amp;s=21'
+        alt='(n
+m) is the binomial coefficient'
+        title='(n
+m) is the binomial coefficient'
+        width='195'
+        height='36' />
+    <link url='http://reference.wolfram.com/mathematica/ref/Binomial.html'
+        text='Documentation'
+        title='Mathematica' />
+    <link url='http://functions.wolfram.com/GammaBetaErf/Binomial'
+        text='Properties'
+        title='Wolfram Functions Site' />
+    <link url='http://mathworld.wolfram.com/BinomialCoefficient.html'
+        text='Definition'
+        title='MathWorld' />
+   </info>
+   <info>
+    <link url='http://functions.wolfram.com/Constants/Pi/06/ShowAll.html'
+        text='More information' />
+   </info>
+  </infos>
+ </pod>
+ <pod title='Integral representations'
+     scanner='MathematicalFunctionData'
+     position='700'
+     error='false'
+     numsubpods='3'>
+  <subpod title=''>
+   <plaintext>pi = 2 integral_0^infinity1/(t^2+1) dt</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP674197h7f5i5d9egb2a00001bhff8c5ffh0d968?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 2 integral_0^infinity1/(t^2+1) dt'
+       title='pi = 2 integral_0^infinity1/(t^2+1) dt'
+       width='126'
+       height='45' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = 4 integral_0^1sqrt(1-t^2) dt</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP675197h7f5i5d9egb2a00004aa2b536afi6h6a8?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 4 integral_0^1sqrt(1-t^2) dt'
+       title='pi = 4 integral_0^1sqrt(1-t^2) dt'
+       width='138'
+       height='45' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>pi = 2 integral_0^infinity(sin(t))/t dt</plaintext>
+   <img src='http://www1.wolframalpha.com/Calculate/MSP/MSP676197h7f5i5d9egb2a0000466d9ac3e8e8eh98?MSPStoreType=image/gif&amp;s=21'
+       alt='pi = 2 integral_0^infinity(sin(t))/t dt'
+       title='pi = 2 integral_0^infinity(sin(t))/t dt'
+       width='124'
+       height='46' />
+  </subpod>
+  <states count='1'>
+   <state name='More' />
+  </states>
+  <infos count='1'>
+   <info>
+    <link url='http://functions.wolfram.com/Constants/Pi/07/ShowAll.html'
+        text='More information' />
+   </info>
+  </infos>
+ </pod>
+ <assumptions count='1'>
+  <assumption type='Clash'
+      word='pi'
+      count='4'>
+   <value name='NamedConstant'
+       desc='a mathematical constant'
+       input='*C.pi-_*NamedConstant-' />
+   <value name='Character'
+       desc='a character'
+       input='*C.pi-_*Character-' />
+   <value name='Movie'
+       desc='a movie'
+       input='*C.pi-_*Movie-' />
+   <value name='Word'
+       desc='a word'
+       input='*C.pi-_*Word-' />
+  </assumption>
+ </assumptions>
 </queryresult>

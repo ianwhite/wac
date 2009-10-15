@@ -65,7 +65,7 @@ module Wac
         xml.plaintext.try(:text)
       end
       
-      def img_tag
+      def img
         xml.img
       end
     end

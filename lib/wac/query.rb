@@ -54,7 +54,7 @@ module Wac
       out = "q: \"#{input}\""
       out << " #{options[:podstate]}" if options[:podstate]
       out << " (assuming #{options[:assumption]})" if options[:assumption]
-      out << ", A: #{result.datatypes}" if fetched?
+      out << ", a: #{result.datatypes}" if fetched?
       out
     end
   end

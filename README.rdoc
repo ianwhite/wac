@@ -4,6 +4,11 @@ This is extreme alpha code!
 
 gem is coming soon, as are features and tests
 
+== resources
+
+<b>Github</b> for code: http://github.com/ianwhite/wac
+<b>API</b> docs: http://ianwhite.github.com/wac/doc
+
 == get going
 
   make sure nokogiri and active_support are installed as gems

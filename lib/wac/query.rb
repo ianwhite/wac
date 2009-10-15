@@ -51,7 +51,8 @@ module Wac
     end
     
     def inspect
-      out = "Q: \"#{input}\""
+      out = "q: \"#{input}\""
+      out << " #{options[:podstate]}" if options[:podstate]
       out << " (assuming #{options[:assumption]})" if options[:assumption]
       out << ", A: #{result.datatypes}" if fetched?
       out

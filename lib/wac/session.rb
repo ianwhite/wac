@@ -18,5 +18,9 @@ module Wac
     def query(input, options = {})
       Query.new(input, options.merge(:session => self))
     end
+    
+    def fetch(input, options = {})
+      query(input, options).fetch
+    end
   end
 end

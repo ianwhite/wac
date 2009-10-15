@@ -5,6 +5,7 @@ require 'wac/xml_container'
 require 'wac/session'
 require 'wac/query'
 require 'wac/result'
+require 'wac/pod'
 require 'wac/assumption'
 
 module Wac
@@ -28,15 +29,15 @@ module Wac
   end
   
   def fetch(input, options = {})
-    query(input, options).result
+    new(options.delete(:appid)).fetch(input, options)
   end
   
   # return a module named <type> in <namespace> (create if necessary)
   def mixin(namespace, type)
-    namespace.const_get(type)
+    Object.const_get "#{namespace.name}::#{type}"
   rescue NameError
     namespace.module_eval "module #{type}; end"
-    namespace.const_get(type)
+    namespace.const_get type
   end
   
   class MissingNodeError < RuntimeError

@@ -1,1 +1,0 @@
-* When querying, I'm getting 404 - I assume appid is wrong, is there anything in the response I can use to identify that

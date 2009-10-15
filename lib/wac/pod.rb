@@ -104,6 +104,11 @@ module Wac
         
         Query.new(@query.input, @query.options.merge(:session => @query.session, :podstate => podstate))
       end
+      
+      # refetch using this state
+      def refetch
+        requery.fetch
+      end
     end
   end
 end

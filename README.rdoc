@@ -39,11 +39,11 @@ gem is coming soon, as are features and tests
   
       => [#<Clash: a mathematical constant, a character, a movie, a word>]
   
-  > r.assumptions[0][2].requery
+  > r.assumptions[0][1].requery
   
-      => q: "pi" (assuming a movie)
+      => q: "pi" (assuming a character)
   
-  > r.assumptions[0][2].requery.fetch
+  > r.assumptions[0][1].requery.fetch
   
       => a: Character (assumptions: Clash)
         - Input interpretation: pi  (character) 

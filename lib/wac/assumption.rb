@@ -57,6 +57,10 @@ module Wac
         Query.new(@query.input, @query.options.merge(:session => @query.session, :assumption => self))
       end
       
+      def refetch
+        requery.fetch
+      end
+      
       def to_query(key)
         input.to_query(key)
       end

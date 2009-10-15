@@ -32,7 +32,7 @@ module Wac
     def inspect
       out = "a: #{xml['datatypes']}"
       out << " (assumptions: #{assumptions.map(&:name).join(', ')})" if assumptions.present?
-      out << pods.map{|pod| "\n  - #{pod}"}.join
+      out << pods.map{|pod| "\n  - #{pod.to_s.gsub("\n", "\n    ")}"}.join
       out
     end
     

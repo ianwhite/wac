@@ -12,8 +12,9 @@ gem is coming soon, as are features and tests
   $ cd wac
   $ irb
   
-  > require 'rubygems'
-  > require 'lib/wac'
+  > require 'rubygems' # or similar, to load up the deps
+  
+  > require 'lib/wac'  
   
   > Wac.appid = "YOURAPIKEY"
   

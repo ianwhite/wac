@@ -103,7 +103,36 @@ For the 'pi' example above the following modules are mixed in:
     end
     
   # now all Numeric results can be cast to floats
+
+== Want Images?
+
+Most pods have an image associated with them, here's an example of how to access them:
+
+  > r = Wac.fetch "Bob Dylan, Neil Young, Woody Guthrie, Kylie Minogue"
+   
+    => a: City,People
+      - Input interpretation: Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter) 
+      - Basic information:  | full name | date of birth | place of birth
+        Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota
+        Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario
+        Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma
+        Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria
+         | date of death | place of death
+        Woody Guthrie | 1967  (age: 55 years)
+        (42 years ago) | New York [Show full dates...]
+      - Timeline:  
+    
+  # collate all the images of these in a html string
   
+  > r.map {|p| p.img}.join
+  
+    => "<img src=\"http://www1.wolframalpha.com/Calculate/MSP/MSP75197hc39c9cc059e800006b0403d7gehhf9f4?MSPStoreType=image/gif&amp;s=31\" alt=\"Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter)\" title=\"Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter)\" width=\"437\" height=\"41\"/><img src=\"http://www1.wolframalpha.com/Calculate/MSP/MSP76197hc39c9cc059e8000055d4671i712ab0g0?MSPStoreType=image/gif&amp;s=31\" alt=\" | full name | date of birth | place of birth Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria  | date of death | place of death Woody Guthrie | 1967  (age: 55 years) (42 years ago) | New York\" title=\" | full name | date of birth | place of birth Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria  | date of death | place of death Woody Guthrie | 1967  (age: 55 years) (42 years ago) | New York\" width=\"495\" height=\"355\"/><img src=\"http://www1.wolframalpha.com/Calculate/MSP/MSP77197hc39c9cc059e800005dhd19ib9b5g5igf?MSPStoreType=image/gif&amp;s=31\" alt=\"\" title=\"\" width=\"500\" height=\"108\"/>"
+    
+  # launch these images in browser windows
+  
+  > require 'launchy'
+  > r.each {|p| Launchy.open(p.img['src'])}
+
 == Want HTML?
 
 You can ask for formats in html, etc by adding options to the query or session (the session is just an options container that can issue queries).

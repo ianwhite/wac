@@ -1,0 +1,94 @@
+= 0.1 release of Wolfram|Alpha Client for ruby
+
+This is extreme alpha code!
+
+gem is coming soon, as are features and tests
+
+== get going
+
+  $ irb
+  
+  > require 'rubygems'
+  > require 'lib/wac'
+  
+  > Wac.appid = "YOURAPIKEY"
+  
+  
+  # grab a query result straight away
+  
+  > r = Wac.fetch 'pi'
+  
+      => a: MathematicalFunctionIdentity (assumptions: Clash)
+        - Input: pi 
+        - Decimal approximation: 3.1415926535897932384626433832795028841971693993751058209749... [More digits...]
+        - Property: pi is a transcendental number 
+        - Continued fraction: [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, ...] [Fraction form...], [More terms...]
+        - Alternative representations: pi = 180 deg  [More...]
+        - Series representations: pi = 4 sum_(k=0)^infinity(-1)^k/(2 k+1) [More...]
+        - Integral representations: pi = 2 integral_0^infinity1/(t^2+1) dt [More...]
+  
+  
+  # requery using an assumption
+  
+  > r.assumptions
+  
+      => [#<Clash: a mathematical constant, a character, a movie, a word>]
+  
+  > r.assumptions[0][2].requery
+  
+      => q: "pi" (assuming a movie)
+  
+  > r.assumptions[0][2].requery.fetch
+  
+      => a: Character (assumptions: Clash)
+        - Input interpretation: pi  (character) 
+        - Visual form:  
+        - Name: Greek small letter pi 
+        - Position in the Greek alphabet: 16th  letter  (10th letter from the end) 
+        - Encodings: Unicode | U+03C0  (decimal: 960)
+      HTML | &#960;
+      Mathematica | \[Pi] [More...]
+        - Standards blocks: Unicode | Greek and Coptic  (880 through 1023)  (144 characters)
+      ISO 8859 | ISO 8859-7 (Greek)  (character 240) 
+  
+  
+  # requery using a pod state
+  
+  > r[1]
+  
+      => #<Numeric: Decimal approximation: 3.1415926535897932384626433832795028841971693993751058209749... [More digits...]>
+      
+  > r[1].states[0].requery.fetch[1]
+  
+      => #<Recognize: Decimal approximation: 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282... [Fewer digits...], [More digits...]>
+  
+== Types
+
+mixins are found/created that match the WA api results, and applied to the results.  This means you can add your own app-specific behaviour by
+opening the mixins you are interested in.
+
+For the 'pi' example above the following modules are mixed in:
+
+  # the result is Wac::Result::MathematicalFunctionIdentity
+  > r.is_a? Wac::Result::MathematicalFunctionIdentity
+  => true
+  
+  # the pods are given mixins for their scanner attributes
+  > r[0].is_a? Wac::Result::Identity
+  => true
+  > r[1].is_a? Wac::Result::Numeric
+  => true
+  
+  # the assumptions are given Assumption mixins
+  > r.assumptions[0].is_a? Wac::Assumption::Clash
+  => true
+  
+  # add your own behaviour for numerics
+  
+    module Wac::Result::Numeric
+      def to_f
+        plaintext.to_f
+      end
+    end
+    
+  # now all Numeric results can be cast to floats

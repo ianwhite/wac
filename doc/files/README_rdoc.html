@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>File: README.rdoc [Wac API Docs]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='file' id='wrapper'>
+      <div class='header'>
+        <div class='name'>README.rdoc</div>
+        <div class='paths'>
+          README.rdoc
+        </div>
+        <div class='last-update'>
+          Last Update:
+          <span class='datetime'>Thu Oct 15 20:14:30 +0100 2009</span>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <h1>0.1 release of Wolfram|Alpha Client for ruby</h1>
+            <p>
+            This is extreme alpha code!
+            </p>
+            <p>
+            gem is coming soon, as are features and tests
+            </p>
+            <h2>resources</h2>
+            <p>
+            <b>Github</b> for code: <a
+            href="http://github.com/ianwhite/wac">github.com/ianwhite/wac</a>
+            </p>
+            <p>
+            <b>API</b> docs: <a
+            href="http://ianwhite.github.com/wac/doc">ianwhite.github.com/wac/doc</a>
+            </p>
+            <h2>get going</h2>
+            <pre>make sure nokogiri and active_support are installed as gems&#x000A;&#x000A;$ git clone git://github.com/ianwhite/wac.git&#x000A;$ cd wac&#x000A;$ irb&#x000A;&#x000A;&gt; require 'rubygems' # or similar, to load up the deps&#x000A;&#x000A;&gt; require 'lib/wac'&#x000A;&#x000A;&gt; Wac.appid = &quot;YOURAPIKEY&quot;&#x000A;&#x000A;# grab a query result straight away&#x000A;&#x000A;&gt; r = Wac.fetch 'pi'&#x000A;&#x000A;    =&gt; a: MathematicalFunctionIdentity (assumptions: Clash)&#x000A;      - Input: pi&#x000A;      - Decimal approximation: 3.1415926535897932384626433832795028841971693993751058209749... [More digits...]&#x000A;      - Property: pi is a transcendental number&#x000A;      - Continued fraction: [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, 1, 14, 2, 1, 1, 2, 2, 2, 2, 1, 84, 2, 1, 1, 15, ...] [Fraction form...], [More terms...]&#x000A;      - Alternative representations: pi = 180 deg  [More...]&#x000A;      - Series representations: pi = 4 sum_(k=0)^infinity(-1)^k/(2 k+1) [More...]&#x000A;      - Integral representations: pi = 2 integral_0^infinity1/(t^2+1) dt [More...]&#x000A;&#x000A;# requery using an assumption&#x000A;&#x000A;&gt; r.assumptions&#x000A;&#x000A;    =&gt; [#&lt;Clash: a mathematical constant, a character, a movie, a word&gt;]&#x000A;&#x000A;&gt; r.assumptions[0][1].requery&#x000A;&#x000A;    =&gt; q: &quot;pi&quot; (assuming a character)&#x000A;&#x000A;&gt; r.assumptions[0][1].requery.fetch&#x000A;&#x000A;    =&gt; a: Character (assumptions: Clash)&#x000A;      - Input interpretation: pi  (character)&#x000A;      - Visual form:&#x000A;      - Name: Greek small letter pi&#x000A;      - Position in the Greek alphabet: 16th  letter  (10th letter from the end)&#x000A;      - Encodings: Unicode | U+03C0  (decimal: 960)&#x000A;    HTML | &amp;#960;&#x000A;    Mathematica | \[Pi] [More...]&#x000A;      - Standards blocks: Unicode | Greek and Coptic  (880 through 1023)  (144 characters)&#x000A;    ISO 8859 | ISO 8859-7 (Greek)  (character 240)&#x000A;&#x000A;# requery using a pod state&#x000A;&#x000A;&gt; r[1]&#x000A;&#x000A;    =&gt; #&lt;Numeric: Decimal approximation: 3.1415926535897932384626433832795028841971693993751058209749... [More digits...]&gt;&#x000A;&#x000A;&gt; r[1].states[0].requery.fetch[1]&#x000A;&#x000A;    =&gt; #&lt;Recognize: Decimal approximation: 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282... [Fewer digits...], [More digits...]&gt;</pre>
+            <h2>Types</h2>
+            <p>
+            mixins are found/created that match the WA api results, and applied to the
+            results. This means you can add your own app-specific behaviour by opening
+            the mixins you are interested in.
+            </p>
+            <p>
+            For the &#8216;pi&#8217; example above the following modules are mixed in:
+            </p>
+            <pre># the result is Wac::Result::MathematicalFunctionIdentity&#x000A;&gt; r.is_a? Wac::Result::MathematicalFunctionIdentity&#x000A;=&gt; true&#x000A;&#x000A;# the pods are given mixins for their scanner attributes&#x000A;&gt; r[0].is_a? Wac::Result::Identity&#x000A;=&gt; true&#x000A;&gt; r[1].is_a? Wac::Result::Numeric&#x000A;=&gt; true&#x000A;&#x000A;# the assumptions are given Assumption mixins&#x000A;&gt; r.assumptions[0].is_a? Wac::Assumption::Clash&#x000A;=&gt; true&#x000A;&#x000A;# add your own behaviour for numerics&#x000A;&#x000A;  module Wac::Result::Numeric&#x000A;    def to_f&#x000A;      plaintext.to_f&#x000A;    end&#x000A;  end&#x000A;&#x000A;# now all Numeric results can be cast to floats</pre>
+            <h2>Want Images?</h2>
+            <p>
+            Most pods have an image associated with them, here&#8217;s an example of
+            how to access them:
+            </p>
+            <pre>&gt; r = Wac.fetch &quot;Bob Dylan, Neil Young, Woody Guthrie, Kylie Minogue&quot;&#x000A;&#x000A;  =&gt; a: City,People&#x000A;    - Input interpretation: Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter)&#x000A;    - Basic information:  | full name | date of birth | place of birth&#x000A;      Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota&#x000A;      Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario&#x000A;      Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma&#x000A;      Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria&#x000A;       | date of death | place of death&#x000A;      Woody Guthrie | 1967  (age: 55 years)&#x000A;      (42 years ago) | New York [Show full dates...]&#x000A;    - Timeline:&#x000A;&#x000A;# collate all the images of these in a html string&#x000A;&#x000A;&gt; r.map {|p| p.img}.join&#x000A;&#x000A;  =&gt; &quot;&lt;img src=\&quot;http://www1.wolframalpha.com/Calculate/MSP/MSP75197hc39c9cc059e800006b0403d7gehhf9f4?MSPStoreType=image/gif&amp;amp;s=31\&quot; alt=\&quot;Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter)\&quot; title=\&quot;Bob Dylan  (musician)  |  Neil Young  (musician)  |  Woody Guthrie  (musician)  |  Kylie Minogue  (singer/songwriter)\&quot; width=\&quot;437\&quot; height=\&quot;41\&quot;/&gt;&lt;img src=\&quot;http://www1.wolframalpha.com/Calculate/MSP/MSP76197hc39c9cc059e8000055d4671i712ab0g0?MSPStoreType=image/gif&amp;amp;s=31\&quot; alt=\&quot; | full name | date of birth | place of birth Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria  | date of death | place of death Woody Guthrie | 1967  (age: 55 years) (42 years ago) | New York\&quot; title=\&quot; | full name | date of birth | place of birth Bob Dylan | Robert Allen Zimmerman | 1941  (age: 68 years) | Duluth,Minnesota Neil Young | Neil Percival Young | 1945  (age: 63 years) | Toronto,Ontario Woody Guthrie | Woodrow Wilson Guthrie | 1912  (97 years ago) | Okemah,Oklahoma Kylie Minogue | Kylie Ann Minogue | 1968  (age: 41 years) | Melbourne,Victoria  | date of death | place of death Woody Guthrie | 1967  (age: 55 years) (42 years ago) | New York\&quot; width=\&quot;495\&quot; height=\&quot;355\&quot;/&gt;&lt;img src=\&quot;http://www1.wolframalpha.com/Calculate/MSP/MSP77197hc39c9cc059e800005dhd19ib9b5g5igf?MSPStoreType=image/gif&amp;amp;s=31\&quot; alt=\&quot;\&quot; title=\&quot;\&quot; width=\&quot;500\&quot; height=\&quot;108\&quot;/&gt;&quot;&#x000A;&#x000A;# launch these images in browser windows&#x000A;&#x000A;&gt; require 'launchy'&#x000A;&gt; r.each {|p| Launchy.open(p.img['src'])}</pre>
+            <h2>Want HTML?</h2>
+            <p>
+            You can ask for formats in html, etc by adding options to the query or
+            session (the session is just an options container that can issue queries).
+            </p>
+            <pre>&gt; s = Wac.new 'MYAPPID', :format =&gt; 'html'&#x000A;&gt; s.fetch('pi')[1].markup&#x000A;  =&gt; &quot;&lt;div id=\&quot;pod_0200\&quot; class=\&quot;pod \&quot;&gt;&lt;hr class=\&quot;top\&quot; /&gt;&lt;h1&gt;&lt;span&gt;Decimal approximation:&lt;/span&gt;&lt;ul&gt;&lt;li class=\&quot;first\&quot;&gt;...&quot;</pre>
+            <h2>Other options</h2>
+            <p>
+            All of the official Wolfram Alpha API options are supported, on both
+            sessions and queries. In addition, you can change the query_uri to point
+            somewhere else.
+            </p>
+            <pre>&gt; s = Wac.new 'MYAPPID', :location =&gt; &quot;Sheffield, UK&quot;&#x000A;&gt; q = s.query &quot;Distance to the Moon&quot;&#x000A;&#x000A;&gt; q.uri&#x000A;&#x000A;  =&gt; &quot;http://api.wolframalpha.com/v1/query?appid=beta824g5&amp;input=Distance+to+the+moon&amp;location=Sheffield%2C+UK&quot;&#x000A;&#x000A;&gt; s.query_uri = &quot;http://preview.wolframalpha.com/api/v1/query.jsp&quot;&#x000A;&gt; q = s.query &quot;Distance to the Moon&quot;&#x000A;&gt; q.uri&#x000A;&#x000A;  =&gt; &quot;http://preview.wolframalpha.com/api/v1/query.jsp?appid=beta824g5&amp;input=Distance+to+the+Moon&amp;location=Sheffield%2C+UK&quot;&#x000A;&#x000A;&gt; q.fetch&#x000A;&#x000A;  =&gt; a: Astronomical,City&#x000A;    - Input interpretation: Moon | distance from Earth&#x000A;    - Current result: 230407 miles&#x000A;    - Unit conversions: 370803 km  (kilometers)&#x000A;    - Comparison as distance:  ~~ 0.96 x mean Moon-Earth distance ( 3.844x10^8 m )&#x000A;    - Corresponding quantity: Light travel time t in vacuum from t=x/c:&#x000A;       | 1.2 seconds&#x000A;    - Orbital properties: current distance from Earth | 230407 mi&#x000A;      1.237 light seconds&#x000A;      average distance from Earth | 239200 mi&#x000A;      1.284 light seconds&#x000A;      largest distance from orbit center | 252100 mi&#x000A;      63.61 R_(+)&#x000A;      nearest distance from orbit center | 225600 mi&#x000A;      56.93 R_(+)&#x000A;      orbital period | 27.322 days [Show metric...], [More...]&#x000A;&#x000A;&gt; q = s.query &quot;distance to Manchester&quot;&#x000A;&#x000A;  =&gt; a: City,Internet (assumptions: SubCategory)&#x000A;    - Input interpretation: distance | from Sheffield to Manchester&#x000A;    - Result: 31 miles&#x000A;    - Unit conversions: 49.89 km  (kilometers)&#x000A;    - Direct travel times: aircraft  (550 mph) | 3 minutes  20 seconds&#x000A;      sound | 2 minutes  20 seconds&#x000A;      light in fiber | 235 micros  (microseconds)&#x000A;      light in vacuum | 165 micros  (microseconds)&#x000A;      (assuming direct great-circle paths) [More...]&#x000A;    - Map:</pre>
+          </div>
+          <div id='section'>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

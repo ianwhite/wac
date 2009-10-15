@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Wac::Pod::Subpod [Wac API Docs]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Wac::Pod::Subpod
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../../files/lib/wac/pod_rb.html">lib/wac/pod.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000043">collection</a></li>
+              <li><a href="#M000044">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000046">img</a></li>
+              <li><a href="#M000045">plaintext</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='includes'>
+              <h2>Included modules</h2>
+              <ol>
+                <li><a href="../XmlContainer.html">XmlContainer</a></li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000043'>
+                <a name='M000043'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>collection</span>
+                  <span class='arguments'>(xml, options = {})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000043-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000043-source'><span class="ruby-comment cmt"># File lib/wac/pod.rb, line 54</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">collection</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">options</span> = {})&#x000A;        <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">search</span>(<span class="ruby-value str">'subpod'</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">s_xml</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">s_xml</span>, <span class="ruby-identifier">options</span>)}&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-class method' id='method-M000044'>
+                <a name='M000044'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(xml, options = {})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000044-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000044-source'><span class="ruby-comment cmt"># File lib/wac/pod.rb, line 58</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">options</span> = {})&#x000A;        <span class="ruby-ivar">@query</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:query</span>]&#x000A;        <span class="ruby-ivar">@xml</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">Slop</span>(<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">search</span>(<span class="ruby-value str">'subpod'</span>).<span class="ruby-identifier">first</span>&#x000A;        <span class="ruby-ivar">@xml</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingNodeError</span>, <span class="ruby-node">&quot;&lt;subpod&gt; node missing from xml: #{xml[0..20]}...&quot;</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000046'>
+                <a name='M000046'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>img</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000046-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000046-source'><span class="ruby-comment cmt"># File lib/wac/pod.rb, line 68</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">img</span>&#x000A;        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">img</span>&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000045'>
+                <a name='M000045'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>plaintext</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000045-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000045-source'><span class="ruby-comment cmt"># File lib/wac/pod.rb, line 64</span>&#x000A;      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plaintext</span>&#x000A;        <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">plaintext</span>.<span class="ruby-identifier">try</span>(<span class="ruby-identifier">:text</span>)&#x000A;      <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Wac::Result [Wac API Docs]</title>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Wac::Result
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/lib/wac/result_rb.html">lib/wac/result.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000054">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000056">assumption</a></li>
+              <li><a href="#M000059">format</a></li>
+              <li><a href="#M000058">inspect</a></li>
+              <li><a href="#M000055">successful?</a></li>
+              <li><a href="#M000057">types</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='includes'>
+              <h2>Included modules</h2>
+              <ol>
+                <li><a href="XmlContainer.html">XmlContainer</a></li>
+                <li>Enumerable</li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>assumptions</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>pods</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>query</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000054'>
+                <a name='M000054'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(xml, options = {})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000054-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000054-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 10</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">xml</span>, <span class="ruby-identifier">options</span> = {})&#x000A;      <span class="ruby-ivar">@query</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:query</span>]&#x000A;      <span class="ruby-ivar">@xml</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>(<span class="ruby-identifier">xml</span>.<span class="ruby-identifier">to_s</span>).<span class="ruby-identifier">search</span>(<span class="ruby-value str">'queryresult'</span>).<span class="ruby-identifier">first</span>&#x000A;      <span class="ruby-ivar">@xml</span> <span class="ruby-keyword kw">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">MissingNodeError</span>, <span class="ruby-node">&quot;&lt;queryresult&gt; node missing from xml: #{xml[0..20]}...&quot;</span>&#x000A;      <span class="ruby-ivar">@assumptions</span> = <span class="ruby-constant">Assumption</span>.<span class="ruby-identifier">collection</span>(<span class="ruby-ivar">@xml</span>, <span class="ruby-identifier">options</span>)&#x000A;      <span class="ruby-ivar">@pods</span> = <span class="ruby-constant">Pod</span>.<span class="ruby-identifier">collection</span>(<span class="ruby-ivar">@xml</span>, <span class="ruby-identifier">options</span>)&#x000A;      <span class="ruby-identifier">types</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">mixin</span><span class="ruby-operator">|</span> <span class="ruby-identifier">extend</span> <span class="ruby-identifier">mixin</span>}&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000056'>
+                <a name='M000056'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>assumption</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  shortcut to the first assumption
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000056-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000056-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 24</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">assumption</span>&#x000A;      <span class="ruby-identifier">assumptions</span>[<span class="ruby-value">0</span>]&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000059'>
+                <a name='M000059'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>format</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000059-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000059-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 39</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format</span>&#x000A;      <span class="ruby-ivar">@query</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@query</span>.<span class="ruby-identifier">options</span>[<span class="ruby-identifier">:format</span>]&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000058'>
+                <a name='M000058'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>inspect</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000058-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000058-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 32</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inspect</span>&#x000A;      <span class="ruby-identifier">out</span> = <span class="ruby-node">&quot;a: #{xml['datatypes']}&quot;</span>&#x000A;      <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; (assumptions: #{assumptions.map(&amp;:name).join(', ')})&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">assumptions</span>.<span class="ruby-identifier">present?</span>&#x000A;      <span class="ruby-identifier">out</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">pods</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">pod</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;\n  - #{pod.to_s.gsub(&quot;\n&quot;, &quot;\n    &quot;)}&quot;</span>}.<span class="ruby-identifier">join</span>&#x000A;      <span class="ruby-identifier">out</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000055'>
+                <a name='M000055'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>successful?</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000055-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000055-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 19</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">successful?</span>&#x000A;      <span class="ruby-identifier">success</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000057'>
+                <a name='M000057'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>types</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000057-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000057-source'><span class="ruby-comment cmt"># File lib/wac/result.rb, line 28</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">types</span>&#x000A;      <span class="ruby-ivar">@types</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">xml</span>[<span class="ruby-value str">'datatypes'</span>].<span class="ruby-identifier">split</span>(<span class="ruby-value str">','</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">type</span><span class="ruby-operator">|</span> <span class="ruby-constant">Wac</span>.<span class="ruby-identifier">mixin</span>(<span class="ruby-constant">Result</span>, <span class="ruby-identifier">type</span>)}&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

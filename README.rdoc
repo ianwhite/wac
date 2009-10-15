@@ -97,3 +97,61 @@ For the 'pi' example above the following modules are mixed in:
     end
     
   # now all Numeric results can be cast to floats
+  
+== Want HTML?
+
+You can ask for formats in html, etc by adding options to the query or session (the session is just an options container that can issue queries).
+
+  > s = Wac.new 'MYAPPID', :format => 'html'
+  > s.fetch('pi')[1].markup
+    => "<div id=\"pod_0200\" class=\"pod \"><hr class=\"top\" /><h1><span>Decimal approximation:</span><ul><li class=\"first\">..."
+    
+== Other options
+
+All of the official Wolfram Alpha API options are supported, on both sessions and queries.  In addition, you can change the query_uri to point
+somewhere else.
+
+  > s = Wac.new 'MYAPPID', :location => "Sheffield, UK"
+  > q = s.query "Distance to the Moon"
+  
+  > q.uri
+  
+    => "http://api.wolframalpha.com/v1/query?appid=beta824g5&input=Distance+to+the+moon&location=Sheffield%2C+UK"
+    
+  > s.query_uri = "http://preview.wolframalpha.com/api/v1/query.jsp"
+  > q = s.query "Distance to the Moon"
+  > q.uri
+  
+    => "http://preview.wolframalpha.com/api/v1/query.jsp?appid=beta824g5&input=Distance+to+the+Moon&location=Sheffield%2C+UK"
+    
+  > q.fetch
+  
+    => a: Astronomical,City
+      - Input interpretation: Moon | distance from Earth 
+      - Current result: 230407 miles 
+      - Unit conversions: 370803 km  (kilometers) 
+      - Comparison as distance:  ~~ 0.96 x mean Moon-Earth distance ( 3.844x10^8 m ) 
+      - Corresponding quantity: Light travel time t in vacuum from t=x/c:
+         | 1.2 seconds 
+      - Orbital properties: current distance from Earth | 230407 mi
+        1.237 light seconds
+        average distance from Earth | 239200 mi
+        1.284 light seconds
+        largest distance from orbit center | 252100 mi
+        63.61 R_(+)
+        nearest distance from orbit center | 225600 mi
+        56.93 R_(+)
+        orbital period | 27.322 days [Show metric...], [More...]
+    
+  > q = s.query "distance to Manchester"
+  
+    => a: City,Internet (assumptions: SubCategory)
+      - Input interpretation: distance | from Sheffield to Manchester 
+      - Result: 31 miles 
+      - Unit conversions: 49.89 km  (kilometers) 
+      - Direct travel times: aircraft  (550 mph) | 3 minutes  20 seconds
+        sound | 2 minutes  20 seconds
+        light in fiber | 235 micros  (microseconds)
+        light in vacuum | 165 micros  (microseconds)
+        (assuming direct great-circle paths) [More...]
+      - Map:  

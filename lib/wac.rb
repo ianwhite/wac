@@ -1,6 +1,8 @@
 require 'active_support'
 require 'nokogiri'
 
+$LOAD_PATH << File.expand_path(File.dirname(__FILE__))
+
 require 'wac/xml_container'
 require 'wac/session'
 require 'wac/query'

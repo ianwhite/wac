@@ -13,7 +13,7 @@ require 'wac/assumption'
 module Wac
   extend self
   
-  DefaultQueryURI = "http://preview.wolframalpha.com/api/v1/query.jsp"
+  DefaultQueryURI = "http://api.wolframalpha.com/v1/query"
   
   attr_accessor :appid
   attr_writer :query_uri
